@@ -24,9 +24,6 @@
     <ClCompile Include="HashTable_Linear_Probing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HashTable_Double_Probing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HashTable_Quadratic_Probing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -41,8 +38,10 @@
     <ClInclude Include="HashTable_Quadratic_Probing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HashTable_Double_Probing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
