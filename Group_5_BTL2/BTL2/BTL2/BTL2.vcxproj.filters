@@ -15,27 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Fibonacci_Hashing.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HashTable_Separate_Chaining.cpp">
+    <ClCompile Include="Fibonacci_Hash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HashTable_Linear_Probing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HashTable_Quadratic_Probing.cpp">
+    <ClCompile Include="Traditional_Hash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HashTable_Separate_Chaining.h">
+    <ClInclude Include="Fibonacci_Hash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HashTable_Linear_Probing.h">
+    <ClInclude Include="Standard Library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HashTable_Quadratic_Probing.h">
+    <ClInclude Include="Traditional_Hash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
