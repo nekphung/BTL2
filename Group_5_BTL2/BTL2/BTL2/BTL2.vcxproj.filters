@@ -29,7 +29,7 @@
     <ClInclude Include="Fibonacci_Hash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Standard Library.h">
+    <ClInclude Include="Standard_Library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Traditional_Hash.h">

@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fibonacci_Hash.h" />
-    <ClInclude Include="Standard Library.h" />
+    <ClInclude Include="Standard_Library.h" />
     <ClInclude Include="Traditional_Hash.h" />
   </ItemGroup>
   <ItemGroup>
