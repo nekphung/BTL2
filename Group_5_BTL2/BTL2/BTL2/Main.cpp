@@ -6,7 +6,7 @@
  * Sử dụng hai hàm băm truyền thống và fibonacci hashing để cải thiện đụng độ có thể xảy ra.
  * Các phần tử sẽ được chèn vào bảng băm và sau đó thực hiện tìm kiếm, xóa nếu cần.
  */
-
+//dhwuohdowhdou
 int main() {
     //Tạo bảng băm với kích thước 17 
     Traditional_Hash th(17); // Sử dụng hàm băm truyền thống
