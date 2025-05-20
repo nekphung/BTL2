@@ -27,7 +27,7 @@ This project implements a hash table in C++ using:
 
 ---
 
-### 🚀 Features
+### Features
 
 ## **Linear Probing**
   - Uses open addressing with linear probing.
