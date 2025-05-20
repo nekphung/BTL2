@@ -93,6 +93,13 @@ bool Traditional_Hash::remove(const std::string& key) {
     return false;
 }
 
+// Mở rộng bảng băm khi bảng đầy
+
+void Traditional_Hash::rehash() {
+
+}
+
+
 // In nội dung bảng băm ra màn hình
 void Traditional_Hash::print() {
     if (table.size() == 0) {

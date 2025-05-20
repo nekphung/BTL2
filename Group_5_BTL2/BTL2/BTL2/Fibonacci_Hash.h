@@ -42,6 +42,9 @@ public:
     // Xóa key khỏi bảng băm
     bool remove(const string& key);
 
+    // Mở rộng bảng băm 
+    void rehash();
+
     // In toàn bộ nội dung bảng băm
     void print();
 };

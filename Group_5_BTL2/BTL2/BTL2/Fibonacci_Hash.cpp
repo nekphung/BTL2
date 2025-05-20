@@ -97,6 +97,13 @@ bool Fibonacci_Hash::remove(const std::string& key) {
     return false;
 }
 
+
+// Mở rộng bảng băm khi bảng đầy
+void Fibonacci_Hash::rehash() {
+
+}
+
+
 // In nội dung bảng băm ra màn hình
 void Fibonacci_Hash::print() {
 	if (table.size() == 0) {
