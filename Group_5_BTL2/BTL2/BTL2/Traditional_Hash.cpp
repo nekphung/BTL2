@@ -19,7 +19,6 @@ int Traditional_Hash::hashFunction(const std::string& key) {
     else return sum % size;
 }
 
-
 // Hàm chèn phần tử vào bảng băm
 bool Traditional_Hash::insert(const std::string& key, int value) {
     int baseIndex = hashFunction(key);
@@ -96,6 +95,10 @@ bool Traditional_Hash::remove(const std::string& key) {
 
 // In nội dung bảng băm ra màn hình
 void Traditional_Hash::print() {
+    if (table.size() == 0) {
+		std::cout << "Hash table is empty." << std::endl;
+		return;
+	}
     for (int i = 0; i < size; i++) {
         if (table[i].isOccupied) {
             std::cout << i << ": " << table[i].key << " -> " << table[i].value << std::endl;

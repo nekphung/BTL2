@@ -9,7 +9,6 @@ Fibonacci_Hash::Fibonacci_Hash(int tableSize) : size(tableSize) {
 // Constructor mặc định của Entry
 Fibonacci_Hash::Entry::Entry() : key(""), value(0), isOccupied(false), isDeleted(false) {}
 
-
 // Hàm băm Fibonacci: sử dụng nhân với hằng số vàng để phân bố khóa đều hơn
 int Fibonacci_Hash::fibonacciHash(const std::string& key) {
     const unsigned long long FIB_MULT = 11400714819323198485ull; // ≈ 2^64 / φ (phi)
@@ -100,6 +99,10 @@ bool Fibonacci_Hash::remove(const std::string& key) {
 
 // In nội dung bảng băm ra màn hình
 void Fibonacci_Hash::print() {
+	if (table.size() == 0) {
+		std::cout << "Hash table is empty." << std::endl;
+		return;
+	}
     for (int i = 0; i < size; i++) {
         if (table[i].isOccupied) {
             std::cout << i << ": " << table[i].key << " -> " << table[i].value << std::endl;
