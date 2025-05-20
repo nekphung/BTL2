@@ -4,9 +4,8 @@
 using namespace std;
 
 /*
- * Lớp HashTable_Linear_Probing
- * Cài đặt bảng băm sử dụng kỹ thuật Linear Probing (thăm dò tuyến tính)
- * để giải quyết xung đột.
+ * Cài đặt bảng băm sử dụng kỹ thuật Linear Probing (thăm dò tuyến tính) để giải quyết xung đột.
+ * Sử dụng hàm băng truyền thống để phân bổ các phần tử vào bảng băm.
  */
 
 class Traditional_Hash {
