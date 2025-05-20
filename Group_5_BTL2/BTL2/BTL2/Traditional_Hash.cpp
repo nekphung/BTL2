@@ -94,9 +94,18 @@ bool Traditional_Hash::remove(const std::string& key) {
 }
 
 // Mở rộng bảng băm khi bảng đầy
+void Traditional_Hash::rehash()
+{
+    int oldSize = size; // Lưu kích thước bảng băm cũ
+    size *= 2;          // Tăng gấp đôi kích thước bảng băm
+    vector<Entry> oldTable = table; // Sao chép bảng băm cũ
 
-void Traditional_Hash::rehash() {
+    table.clear();      // Xóa nội dung bảng hiện tại
+    table.resize(size); // Tạo bảng mới với kích thước mới
 
+    for (Entry entry : oldTable) {
+        insert(entry.key, entry.value); // Thêm lại các phần tử vào bảng mới
+    }
 }
 
 

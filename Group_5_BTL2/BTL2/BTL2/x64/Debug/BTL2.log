@@ -1,2 +1,5 @@
-﻿  Main.cpp
-  BTL2.vcxproj -> D:\Group5\Group_5_BTL2\BTL2\x64\Debug\BTL2.exe
+﻿  Fibonacci_Hash.cpp
+D:\NHÓM_5\Group_5_BTL2\BTL2\BTL2\Fibonacci_Hash.cpp(23,30): warning C4244: 'return': conversion from 'unsigned __int64' to 'int', possible loss of data
+  Traditional_Hash.cpp
+  Generating Code...
+  BTL2.vcxproj -> D:\NHÓM_5\Group_5_BTL2\BTL2\x64\Debug\BTL2.exe

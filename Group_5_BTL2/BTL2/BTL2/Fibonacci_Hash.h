@@ -7,6 +7,7 @@ using namespace std;
  * Cài đặt bảng băm sử dụng kỹ thuật Linear Probing (thăm dò tuyến tính) để giải quyết xung đột.
  * Sử dụng hàm băm fibonacci để cải thiện sự phân bổ các phần tử vào trong bảng băm.
  */
+
 class Fibonacci_Hash {
 private:
     /*
