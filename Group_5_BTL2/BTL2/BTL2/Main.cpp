@@ -16,7 +16,10 @@ void veMenu() {
 	cout << "5. Exit" << endl;
 	cout << "-----------------------------------------------------" << endl;
 }
-
+/// <summary>
+/// 
+/// </summary>
+/// <returns></returns>
 int main() {
     int option = 0;
 	int size = 0;
