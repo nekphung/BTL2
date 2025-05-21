@@ -26,6 +26,7 @@ private:
     vector<Entry> table;  // Bảng băm chính
     int size;             // Kích thước bảng băm
 
+    int initialSize; // Kích thước ban đầu của bảng băm
 
     // Hàm băm Fibonacci để phân phối đều hơn
     int fibonacciHash(const string& key);
@@ -37,6 +38,9 @@ public:
     // Thêm hoặc cập nhật giá trị theo key
     bool insert(const string& key, int value);
 
+    // Hàm tính trọng tải của bảng băm
+    float getLoadFactor();
+
     // Tìm kiếm key, lưu kết quả vào biến value nếu tìm thấy
     bool search(const string& key, int& value);
 
@@ -44,7 +48,10 @@ public:
     bool remove(const string& key);
 
     // Mở rộng bảng băm 
-    void rehash();
+    void rehash_insert();
+
+    // Thu hẹp bảng băm
+    void rehash_remove();
 
     // In toàn bộ nội dung bảng băm
     void print();

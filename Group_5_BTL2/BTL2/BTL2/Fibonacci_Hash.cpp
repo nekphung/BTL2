@@ -2,7 +2,7 @@
 #include <cmath>  // Để dùng log2
 
 // Hàm tạo: khởi tạo bảng băm với kích thước cho trước
-Fibonacci_Hash::Fibonacci_Hash(int tableSize) : size(tableSize) {
+Fibonacci_Hash::Fibonacci_Hash(int tableSize) : size(tableSize), initialSize(tableSize) {
     table.resize(size);  // Cấp phát bảng với số ô bằng size
 }
 
@@ -25,6 +25,11 @@ int Fibonacci_Hash::fibonacciHash(const std::string& key) {
 
 // Hàm chèn phần tử vào bảng băm
 bool Fibonacci_Hash::insert(const std::string& key, int value) {
+    if (getLoadFactor() >= 0.7) // Nếu vượt qua ngưỡng cho phép thì phải tăng kích thước của bảng băm
+    {
+        rehash_insert(); // Tăng kích thước của bảng băm
+    }
+
     int baseIndex = fibonacciHash(key);
     int i = 0;
 
@@ -72,8 +77,20 @@ bool Fibonacci_Hash::search(const std::string& key, int& value) {
     return false;
 }
 
+float Fibonacci_Hash::getLoadFactor() {
+    int occupiedCount = 0;
+    for (const auto& entry : table) {
+         if (entry.isOccupied) {
+            occupiedCount++;
+            
+        }
+    }
+    return static_cast <float>(occupiedCount) / size;
+}
+
 // Xóa phần tử khỏi bảng băm
 bool Fibonacci_Hash::remove(const std::string& key) {
+
     int baseIndex = fibonacciHash(key);
     int i = 0;
 
@@ -93,13 +110,15 @@ bool Fibonacci_Hash::remove(const std::string& key) {
 
         i++;
     }
-
+    if (getLoadFactor() <= 0.3 && size > initialSize) {
+        rehash_remove();
+    }
     return false;
 }
 
 
 // Mở rộng bảng băm khi bảng đầy
-void Fibonacci_Hash::rehash() {
+void Fibonacci_Hash::rehash_insert() {
     int oldSize = size; // Lưu kích thước bảng băm cũ
     size *= 2;          // Tăng gấp đôi kích thước bảng băm
     vector<Entry> oldTable = table; // Sao chép bảng băm cũ
@@ -108,10 +127,27 @@ void Fibonacci_Hash::rehash() {
     table.resize(size); // Tạo bảng mới với kích thước mới
 
     for (Entry entry : oldTable) {
-        insert(entry.key, entry.value); // Thêm lại các phần tử vào bảng mới
+        if (entry.isOccupied) {
+            insert(entry.key, entry.value); // Thêm lại các phần tử vào bảng mới
+        }
     }
 }
 
+// thu hẹp bảng lại để không tốn nhiều bộ nhớ của hệ thống
+void Fibonacci_Hash::rehash_remove() {
+    int oldSize = size; // Lưu kích thước bảng băm cũ
+    size /= 2;          // Giảm một nửa kích thước bảng băm
+    vector<Entry> oldTable = table; // Sao chép bảng băm cũ
+
+    table.clear();      // Xóa nội dung bảng hiện tại
+    table.resize(size); // Tạo bảng mới với kích thước mới
+
+    for (Entry entry : oldTable) {
+        if (entry.isOccupied) {
+            insert(entry.key, entry.value); // Thêm lại các phần tử vào bảng mới
+        }
+    }
+}
 
 // In nội dung bảng băm ra màn hình
 void Fibonacci_Hash::print() {

@@ -26,6 +26,8 @@ private:
     vector<Entry> table;  // Bảng băm chính
     int size;             // Kích thước bảng băm
 
+    int initialSize; // Kích thước ban đầu của bảng băm
+
     // Hàm băm truyền thống
     int hashFunction(const string& key);
 
@@ -39,11 +41,17 @@ public:
     // Tìm kiếm key, lưu kết quả vào biến value nếu tìm thấy
     bool search(const string& key, int& value);
 
+    // Hàm tính trọng tải của bảng băm
+    float getLoadFactor();
+
     // Xóa key khỏi bảng băm
     bool remove(const string& key);
 
     // Mở rộng bảng băm 
-    void rehash();
+    void rehash_insert();
+
+    // Thu hẹp bảng băm
+    void rehash_remove();
 
     // In toàn bộ nội dung bảng băm
     void print();
