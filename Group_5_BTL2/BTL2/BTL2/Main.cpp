@@ -10,16 +10,14 @@
 void veMenu() {
     cout << "-------------------------Menu------------------------" << endl;
 	cout << "1. Input size of hash table" << endl;
-	cout << "2. Insert key-value pair" << endl;
+	cout << "2. Insert key-value pair or get from file" << endl;
 	cout << "3. Search key" << endl;
 	cout << "4. Remove key" << endl;
 	cout << "5. Exit" << endl;
 	cout << "-----------------------------------------------------" << endl;
 }
-/// <summary>
-/// 
-/// </summary>
-/// <returns></returns>
+
+
 int main() {
     int option = 0;
 	int size = 0;
@@ -27,9 +25,9 @@ int main() {
     Fibonacci_Hash fiboHash(0);
 	while (true) {
 		system("cls");
-		cout << "*Table of Traditional Hash*" << endl;
+		cout << " ------ Table of Traditional Hash ------ " << endl;
 		tradiHash.print();
-		cout << "*Table of Fibonacci Hash*" << endl;
+		cout << " ------ Table of Fibonacci Hash ------ " << endl;
 		fiboHash.print();
 		veMenu();
 		cout << "Please enter your option: ";
@@ -46,24 +44,72 @@ int main() {
 			break;
 		}
 		case 2: {
-			if (size == 0) {
-				cout << "Please create a hash table first!" << endl;
+			cout << " ------------- menu --------------- " << endl;
+			cout << "1. Direct data entry" << endl;
+			cout << "2. Get data from file" << endl;
+			cout << " ---------------------------------- " << endl;
+			cout << "Please enter your option: ";
+			int choice;
+			cin >> choice;
+			switch (choice) {
+			    case 1: {
+				if (size == 0) {
+					cout << "Please create a hash table first!" << endl;
+					break;
+				}
+				cout << "How many key-value pairs do you want to insert? ";
+				int n;
+				cin >> n;
+				for (int i = 0; i < n; i++) {
+					pair<string, int> kv;
+					cout << i + 1 << "." << "Enter key and value: ";
+					cin >> kv.first;
+					cin >> kv.second;
+					// Chèn vào bảng băm
+					tradiHash.insert(kv.first, kv.second);
+					fiboHash.insert(kv.first, kv.second);
+				}
+				cout << "Inserted " << n << " key-value pairs into both hash tables." << endl;
+				system("pause");
 				break;
+			    }
+			    case 2: {
+					if (size == 0) {
+						cout << "Please create a hash table first!" << endl;
+						break;
+					}
+					ifstream inFile;
+					inFile.open("Data.txt");
+					if (!inFile.is_open()) {
+						cout << "Error!" << endl;
+						break;
+					}
+					int n;
+					inFile >> n;
+					for (int i = 0; i < n; i++) {
+						string line;
+						getline(inFile, line);
+						if (line.empty()) {
+							i--;
+							continue;
+						}
+						stringstream ss(line);
+						string word;
+						string key;
+						string value = "";
+						while (ss >> word) {
+							key = value;
+							value = word;
+						}
+						tradiHash.insert(key, stoi(value));
+						fiboHash.insert(key, stoi(value));
+					}
+					cout << "Inserted " << n << " key-value pairs into both hash tables." << endl;
+					inFile.close();
+					system("pause");
+					break;
+			    }
 			}
-			cout << "How many key-value pairs do you want to insert? ";
-			int n;
-			cin >> n;
-			for (int i = 0; i < n; i++) {
-				pair<string, int> kv;
-				cout << i + 1 << "." << "Enter key and value: ";
-				cin >> kv.first;
-				cin >> kv.second;
-				// Chèn vào bảng băm
-				tradiHash.insert(kv.first, kv.second);
-				fiboHash.insert(kv.first, kv.second);
-			}
-			cout << "Inserted " << n << " key-value pairs into both hash tables." << endl;
-			system("pause");
 			break;
 		}
 		case 3: {
