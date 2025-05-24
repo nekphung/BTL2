@@ -10,21 +10,21 @@ Fibonacci_Hash::Fibonacci_Hash(int tableSize) : size(tableSize), initialSize(tab
 Fibonacci_Hash::Entry::Entry() : key(""), value(0), isOccupied(false), isDeleted(false) {}
 
 // Hàm băm Fibonacci: sử dụng nhân với hằng số vàng để phân bố khóa đều hơn
-int Fibonacci_Hash::fibonacciHash(const std::string& key) {
+int Fibonacci_Hash::fibonacciHash(const string& key) {
     const unsigned long long FIB_MULT = 11400714819323198485ull; // ≈ 2^64 / φ (phi)
     unsigned long long hash = 0;
 
-    // Hash theo cách nhân với 31 mỗi ký tự (phổ biến như trong Java)
+    // Hash theo cách nhân với 31 mỗi ký tự
     for (char c : key) {
-        hash = hash * 31 + c;
+        hash = hash * 31 + static_cast <int>(c);
     }
 
     int shift = 64 - static_cast<int>(log2(size)); // Giả sử size là lũy thừa của 2
-    return (hash * FIB_MULT) >> shift;
+    return  static_cast<int>((hash * FIB_MULT) >> shift);
 }
 
 // Hàm chèn phần tử vào bảng băm
-bool Fibonacci_Hash::insert(const std::string& key, int value) {
+bool Fibonacci_Hash::insert(const string& key, int value) {
     if (getLoadFactor() >= 0.7) // Nếu vượt qua ngưỡng cho phép thì phải tăng kích thước của bảng băm
     {
         rehash_insert(); // Tăng kích thước của bảng băm
@@ -56,7 +56,7 @@ bool Fibonacci_Hash::insert(const std::string& key, int value) {
 }
 
 // Tìm kiếm một khóa và gán giá trị nếu tìm thấy
-bool Fibonacci_Hash::search(const std::string& key, int& value) {
+bool Fibonacci_Hash::search(const string& key, int& value) {
     int baseIndex = fibonacciHash(key);
     int i = 0;
 
@@ -89,7 +89,7 @@ float Fibonacci_Hash::getLoadFactor() {
 }
 
 // Xóa phần tử khỏi bảng băm
-bool Fibonacci_Hash::remove(const std::string& key) {
+bool Fibonacci_Hash::remove(const string& key) {
 
     int baseIndex = fibonacciHash(key);
     int i = 0;

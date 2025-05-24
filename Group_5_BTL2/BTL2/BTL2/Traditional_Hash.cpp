@@ -10,7 +10,7 @@ Traditional_Hash::Traditional_Hash(int tableSize) : size(tableSize), initialSize
 Traditional_Hash::Entry::Entry() : key(""), value(0), isOccupied(false), isDeleted(false) {}
 
 // Hàm băm đơn giản: tính tổng ASCII các ký tự trong chuỗi rồi mod với kích thước bảng
-int Traditional_Hash::hashFunction(const std::string& key) {
+int Traditional_Hash::hashFunction(const string& key) {
     int sum = 0;
     for (char c : key) {
         sum += static_cast<int>(c);
@@ -20,7 +20,7 @@ int Traditional_Hash::hashFunction(const std::string& key) {
 }
 
 // Hàm chèn phần tử vào bảng băm
-bool Traditional_Hash::insert(const std::string& key, int value) {
+bool Traditional_Hash::insert(const string& key, int value) {
     if (getLoadFactor() >= 0.7) // Nếu vượt qua ngưỡng cho phép thì phải tăng kích thước của bảng băm
     {
         rehash_insert(); // Tăng kích thước của bảng băm
@@ -52,7 +52,7 @@ bool Traditional_Hash::insert(const std::string& key, int value) {
 }
 
 // Tìm kiếm một khóa và gán giá trị nếu tìm thấy
-bool Traditional_Hash::search(const std::string& key, int& value) {
+bool Traditional_Hash::search(const string& key, int& value) {
     int baseIndex = hashFunction(key);
     int i = 0;
 
@@ -85,7 +85,7 @@ float Traditional_Hash::getLoadFactor() {
 }
 
 // Xóa phần tử khỏi bảng băm
-bool Traditional_Hash::remove(const std::string& key) {
+bool Traditional_Hash::remove(const string& key) {
     int baseIndex = hashFunction(key);
     int i = 0;
 
