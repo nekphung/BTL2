@@ -1,63 +1,100 @@
-# Hash Table Implementation in C++ (Linear Probing with Fibonacci Hashing)
+### Hash Table Implementation in C++ (Linear Probing with Fibonacci Hashing)
+## This project implements a hash table in C++ using:
 
-This project implements a hash table in C++ using:
+- Linear Probing for collision resolution
+- Fibonacci Hashing for better key distribution
 
-### **Linear Probing** for collision resolution
-### **Fibonacci Hashing** for better key distribution
 
----
+**📌Overview** 
 
-### How to Build and Run
+- This program demonstrates the difference between traditional hashing 
+and Fibonacci hashing when handling key collisions using linear probing.
+- You can:
+ + Create a hash table with custom size
+ + Insert key-value pairs manually or from a file
+ + Search and delete keys in both hash tables
+ + Compare performance of two hashing strategies
 
-## Using Visual Studio 2022
+----------------------------
 
-1. **Create or open a C++ project:**
-   - Open Visual Studio 2022.
-   - Create a new C++ Console Application or open your existing one.
+**✨ Features** 
 
-2. **Add source files:**
-   - Add all `.cpp` and `.h` files into the project:  
-     _Right-click the project → Add → Existing Item..._
+*🔁 Linear Probing*
 
-3. **Build the project:**
-   - Go to `Build > Build Solution` or press `Ctrl + Shift + B`.
+- Uses open addressing for collision resolution
+- Simple and efficient for insertion, searching, and deletion
+- Works well when combined with better hash functions
 
-4. **Run the program:**
-   - Press `F5` (with debugger) or `Ctrl + F5` (without debugger).
+*🌻 Fibonacci Hashing*
 
----
+- Uses the golden ratio to spread keys more uniformly
+- Reduces clustering and improves collision handling
 
-### Features
+*🔧 Supported Operations*
 
-## **Linear Probing**
-  - Uses open addressing with linear probing.
-  - Efficient for search, insert, and delete operations.
-  - Avoids clustering better when combined with Fibonacci hashing.
+- Insert key-value pairs (manually or via file)
+- Search for a specific key
+- Delete a key
+- Display the internal state of both hash tables
 
-## **Fibonacci Hashing**
-  - Uses the golden ratio constant to distribute keys more evenly.
-  - Helps reduce collisions compared to modulo-based hash functions.
+----------------------------
 
-## **Operations Supported**
-  - Insert key-value pairs
-  - Search for keys
-  - Overwrite values if keys already exist
-  - Print current hash table state
+**🛠️ How to Build and Run** 
 
----
+🛠 Using Visual Studio 2022:
 
-### Notes
+- Open Visual Studio 2022 and create a new C++ Console Application.
+- Add the following source files to your project:
+   + main.cpp
+   + Traditional_Hash.h, Traditional_Hash.cpp
+   + Fibonacci_Hash.h, Fibonacci_Hash.cpp
+- Add Data.txt to the project directory if using file input.
+- Build the solution (Ctrl + Shift + B).
+- Run the program (F5 or Ctrl + F5).
 
-- No automatic resizing is implemented.
-- The hash table size is fixed at initialization (a prime number is recommended).
-- You can customize or extend the hash function as needed.
+----------------------------
 
----
+**📂 File Structure** 
 
-### Files
+📁 ProjectRoot
+├── main.cpp                   // Program with menu and interaction
+├── Traditional_Hash.h/.cpp    // Traditional modulo-based hashing
+├── Fibonacci_Hash.h/.cpp      // Fibonacci hashing logic
+├── Data.txt                   // Optional file input
 
-- `main.cpp` — Example usage of the hash table.
-- `Traditional_Hash.h / .cpp` — Linear probing with traditional hash.
-- `Fibonacci_Hash.h / .cpp` — Linear probing with Fibonacci hash.
+----------------------------
 
----
+**📝 Input File Format (Data.txt)** 
+
+ - First line number of entries (n)
+ - Next n lines each line contains a key and value separated by space
+ - Example: 
+        6
+        apple 5
+        lemon 7
+        cherry 3
+        date 12
+        grape 10
+        banana 8
+
+----------------------------
+
+**🚀 Future Improvements** 
+
+ - Add automatic resizing (rehashing)
+ - Improve collision resolution with double hashing or quadratic probing
+ - Track number of collisions and probe sequences
+ - Visualize hash table (for educational/demo purposes)
+
+----------------------------
+
+**⚠️ Notes** 
+
+- The hash table does not resize automatically — choose the size wisely.
+- It's recommended to use a prime number for the table size to minimize clustering.
+- The hashing logic is customizable — feel free to extend or optimize as needed.
+
+----------------------------
+
+
+
