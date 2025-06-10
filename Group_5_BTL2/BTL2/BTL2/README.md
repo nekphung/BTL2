@@ -1,9 +1,10 @@
-### Hash Table Implementation in C++ (Linear Probing with Fibonacci Hashing)
-## This project implements a hash table in C++ using:
+## Hash Table Implementation in C++ (Linear Probing with Fibonacci Hashing)
+### This project implements a hash table in C++ using:
 
 - Linear Probing for collision resolution
 - Fibonacci Hashing for better key distribution
 
+----------------------------
 
 **📌Overview** 
 
