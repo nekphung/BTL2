@@ -11,7 +11,7 @@ Fibonacci_Hash::Entry::Entry() : key(""), value(0), isOccupied(false), isDeleted
 
 // Hàm băm Fibonacci: sử dụng nhân với hằng số vàng để phân bố khóa đều hơn
 int Fibonacci_Hash::fibonacciHash(const string& key) {
-    const unsigned long long FIB_MULT = 11400714819323198485ull; // ≈ 2^64 / φ (phi)
+    const unsigned long long FIB_MULT = 11400714819323198485ull; // ≈ 2^64 / φ (phi), φ là tỉ lệ vàng, φ ≈ 1.61803398875...
     unsigned long long hash = 0;
 
     // Hash theo cách nhân với 31 mỗi ký tự
